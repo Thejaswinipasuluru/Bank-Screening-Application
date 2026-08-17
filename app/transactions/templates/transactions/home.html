@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bank Screening Platform</title>
+</head>
+
+<th>Action</th>
+
+<p>
+    <a href="{% url 'add_transaction' %}">
+        <button>Add New Transaction</button>
+    </a>
+</p>
+
+<body>
+
+<h1>🏦 Bank Screening Platform</h1>
+
+<h2>Welcome, {{officer_name}}!</h2>
+
+<h3>Today's Transactions</h3>
+
+<table border="1">
+
+<tr>
+    <th>ID</th>
+    <th>Transaction ID</th>
+    <th>Customer</th>
+    <th>Amount</th>
+    <th>Status</th>
+    <th>Action</th>
+</tr>
+
+{% for transaction in transactions %}
+
+<tr>
+<td>{{ transaction.id }}</td>
+
+<td>{{ transaction.transaction_id }}</td>
+
+<td>{{ transaction.customer }}</td>
+
+<td>{{ transaction.amount }}</td>
+
+<td>{{ transaction.status }}</td>
+
+<td>
+    <a href="{% url 'edit_transaction' transaction.id %}">
+        Edit
+    </a>
+
+    |
+
+    <a href="{% url 'delete_transaction' transaction.id %}">
+        Delete
+    </a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+
+</html>
