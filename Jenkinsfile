@@ -1,22 +1,24 @@
-agent any
+pipeline {
+    agent any
 
-    stages {
+        stages {
 
-        stage('Checkout') {
-            steps {
-                echo 'Checking out application code'
+            stage('Checkout') {
+                steps {
+                    echo 'Checking out application code'
+                }
             }
-        }
 
-        stage('Build') {
-            steps {
-                echo 'Building Bank Screening application'
+            stage('Build') {
+                steps {
+                    echo 'Building Bank Screening application'
+                }
             }
-        }
 
-        stage('Test') {
-            steps {
-                echo 'Running application tests'
+            stage('Test') {
+                steps {
+                    echo 'Running application tests'
+                }
             }
         }
     }
