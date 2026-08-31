@@ -22,8 +22,11 @@ pipeline {
 
             stage('Test') {
                 steps {
-                    echo 'Running application tests'
-                }
-            }
-        }
-    }
+                    dir('app') {
+			sh 'venv/bin/python manage.py check'
+		}
+
+             }
+          }
+      }
+  }
