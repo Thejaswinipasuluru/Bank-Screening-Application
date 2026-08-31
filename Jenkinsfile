@@ -23,7 +23,7 @@ pipeline {
             stage('Test') {
                 steps {
                     dir('app') {
-			sh 'venv/bin/python manage.py check'
+			sh 'venv/bin/python manage.py test'
 		}
 
              }
