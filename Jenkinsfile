@@ -11,7 +11,7 @@ pipeline {
 
             stage('Build') {
                 steps {
-                    dir('app) {
+                    dir('app') {
 			sh 'python3 --version'
 			sh 'pip3 install -r requirements.txt'
 			sh 'python3 manage.py check'
