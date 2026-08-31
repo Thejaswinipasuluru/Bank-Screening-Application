@@ -11,7 +11,11 @@ pipeline {
 
             stage('Build') {
                 steps {
-                    echo 'Building Bank Screening application'
+                    dir('app) {
+			sh 'python3 --version'
+			sh 'pip3 install -r requirements.txt'
+			sh 'python3 manage.py check'
+		    }
                 }
             }
 
