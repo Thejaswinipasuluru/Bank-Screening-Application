@@ -5,6 +5,7 @@ pipeline {
         DB_NAME = 'bankdb'
         DB_HOST = 'postgres-db'
         DB_PORT = '5432'
+        DB_CREDS = credentials('postgres-db-credentials')
     }
 
     stages {
@@ -38,6 +39,14 @@ pipeline {
                     ]) {
                         sh 'venv/bin/python manage.py test'
                     }
+                }
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                dir('app') {
+                    sh 'docker build -t bank-screening:${BUILD_NUMBER} .'
                 }
             }
         }
