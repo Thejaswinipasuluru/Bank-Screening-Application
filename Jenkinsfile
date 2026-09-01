@@ -1,6 +1,17 @@
 pipeline {
     agent any
 
+        environment {
+        DB_NAME = 'bankdb'
+        DB_HOST = 'postgres-db'
+        DB_PORT = '5432'
+
+        DB_CREDS = credentials('postgres-db-credentials')
+
+	DB_USER = "${DB_CREDS_USR}"
+        DB_PASSWORD = "${DB_CREDS_PSW}"   
+    }
+
         stages {
 
             stage('Checkout') {
